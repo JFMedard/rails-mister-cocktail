@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Cocktails</h1>
+
+
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Cocktails</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <p>All <%=@cocktails.count%> Cocktails</p>
+    </div>
+
+  </div>
+  <div class="row">
+    <% @cocktails.each do |cocktail|  %>
+      <div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://source.unsplash.com/collection/8462744/1600x900')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= cocktail.name %></h4>
+            </div>
+            <p><%=  %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">people</i><span><%=  %></span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> <%=%>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", cocktail_path(cocktail) %>
+            <a class="ml-3 text-warning" href="/flats/2550/edit">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/2550">Remove</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
