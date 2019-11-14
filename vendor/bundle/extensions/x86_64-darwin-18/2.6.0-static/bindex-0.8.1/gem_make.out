@@ -1,0 +1,15 @@
+current directory: /Users/JF/code/JFMedard/rails-mister-cocktail/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+/Users/JF/.rbenv/versions/2.6.3/bin/ruby -I /Users/JF/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191114-50022-3p6yzr.rb extconf.rb
+creating Makefile
+
+current directory: /Users/JF/code/JFMedard/rails-mister-cocktail/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/JF/code/JFMedard/rails-mister-cocktail/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/JF/code/JFMedard/rails-mister-cocktail/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20191114-50022-e0i8sm/skiptrace/internal
