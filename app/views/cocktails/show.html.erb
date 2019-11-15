@@ -1,10 +1,9 @@
-<div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
-  Cool article
-</div>
+<div class="banner mt-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key%>')"></div>
+  <br>
+  <br>
   <div class="container margin-top-negative">
     <div class="row">
-      <div class="col-8">
+      <div class="col-7 mt-3">
         <div class="flat-show-card">
           <h1><%= @cocktail.name %></h1>
           <br>
@@ -22,10 +21,9 @@
         <div class="flat-show-card">
           <div class="map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=5 Queensmill Road London SW6 6JP&zoom=13&scale=2&size=1000x1000&maptype=roadmap&markers=color:red%7C5 Queensmill Road London SW6 6JP&key=AIzaSyBtaHK-BLhBg7TruJu8iKk_wETqZMJM-GY')"></div>
         </div>
-
       </div>
-
-      <div class="col-4">
+      <br>
+      <div class="col-5 mt-3">
         <div class="flat-show-card">
           <h5>Add a new dose!</h5>
           <%= simple_form_for [@cocktail, @dose] do |f| %>
