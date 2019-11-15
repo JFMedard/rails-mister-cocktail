@@ -7,12 +7,9 @@
           <br>
           <h3>Doses & Ingredients</h3>
           <% @cocktail.doses.each do |cocktail| %>
-          <p class="flat-show-address"><%=cocktail.ingredient.name%> | <%= cocktail.description  %>
+          <p class="flat-show-address"><%=cocktail.ingredient.name%> | <%= cocktail.description  %> | <%= link_to 'delete', dose_path(cocktail.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
            <% end %>
-             <% @doses.each do |dose| %>
-            <%= link_to 'delete', dose_path(dose), method: :delete %>
            </p>
-          <% end %>
           <% if @cocktail.photo.attached? %>
         <%= cl_image_tag @cocktail.photo.key, height: 200, width: 300, crop: :fill %>
         <% else %>
