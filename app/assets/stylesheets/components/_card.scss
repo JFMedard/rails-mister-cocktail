@@ -10,7 +10,8 @@
 .flat-card-image {
     height: 180px;
     background-position: center;
-    background-size: cover;
+    // background-size: cover;
+    object-fit: cover;
 }
 .flat-card-content {
     padding: 24px;

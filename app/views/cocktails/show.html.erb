@@ -4,13 +4,20 @@
       <div class="col-8">
         <div class="flat-show-card">
           <h1><%= @cocktail.name %></h1>
+          <br>
+          <h3>Doses & Ingredients</h3>
           <% @cocktail.doses.each do |cocktail| %>
           <p class="flat-show-address"><%=cocktail.ingredient.name%> | <%= cocktail.description  %>
            <% end %>
-             | <% @doses.each do |dose| %>
+             <% @doses.each do |dose| %>
             <%= link_to 'delete', dose_path(dose), method: :delete %>
            </p>
           <% end %>
+          <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200", height: 200, width: 300, alt: "alttext" %>
+        <% end %>
         </div>
         <div class="flat-show-card">
           <div class="map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=5 Queensmill Road London SW6 6JP&zoom=13&scale=2&size=1000x1000&maptype=roadmap&markers=color:red%7C5 Queensmill Road London SW6 6JP&key=AIzaSyBtaHK-BLhBg7TruJu8iKk_wETqZMJM-GY')"></div>
@@ -28,26 +35,17 @@
           <% end %>
         </div>
         <div class="flat-show-card">
-          <h3>Details</h3>
           <div class="flex">
             <div class="flex">
-              <i class="material-icons mr-2">people</i><span><%=%></span>
+              <i class="material-icons mr-2"></i><span><%=%></span>
             </div>
             <div class="flex ml-3">
-              <i class="material-icons mr-2">euro_symbol</i> <%=%>
+              <i class="material-icons mr-2"></i> <%=%>
             </div>
           </div>
         </div>
         <div class="flat-show-card">
-          <div class="flex-align">
-            <h6 class="no-mb">Share</h6>
 
-            <div class="flex">
-              <i class="fa fa-facebook-square fa-2x mr-2"></i>
-              <i class="fa fa-twitter-square fa-2x mr-2"></i>
-              <i class="fa fa-pinterest-square fa-2x mr-2"></i>
-              <i class="fa fa-envelope-square fa-2x"></i>
-            </div>
           </div>
         </div>
         <div class="container">
@@ -55,13 +53,7 @@
 
         <br>
 
-
-
-          <%= link_to "Back", cocktails_path %>
-
-          <% @doses.each do |dose| %>
-            <li><%= "#{dose.ingredient.name} | #{dose.description}" %> <%= link_to 'delete', dose_path(dose), method: :delete %></li>
-           <% end %>
+          <%= link_to "Back to Cocktails list", cocktails_path, class: 'btn btn-success' %>
 
         </div>
       </div>

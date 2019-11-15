@@ -15,7 +15,12 @@
     <% @cocktails.each do |cocktail|  %>
       <div class="col-4">
         <div class="flat-card">
-          <div class="flat-card-image" style="background-image: url('https://source.unsplash.com/collection/8462744/1600x900')"></div>
+          <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key, height: 200, width: 350, crop: :fill, class: 'flat-card-image' %>
+        <% else %>
+        <%= image_tag "https://source.unsplash.com/collection/8462744/1600x900", height: 200, width: 350, alt: "alttext" %>
+        <% end %>
+          <!-- <div class="flat-card-image" style="background-image: url('https://source.unsplash.com/collection/8462744/1600x900')"></div> -->
           <div class="flat-card-content">
             <div class="flat-card-title">
               <h4><%= cocktail.name %></h4>
@@ -23,23 +28,21 @@
             <p><%=  %></p>
             <div class="flex">
               <div class="flex">
-                <i class="material-icons mr-2">people</i><span><%=  %></span>
+                <i class="material-icons mr-2"></i><span><%=  %></span>
               </div>
               <div class="flex ml-3">
-                <i class="material-icons mr-2">euro_symbol</i> <%=%>
+                <i class="material-icons mr-2"></i> <%=%>
               </div>
             </div>
           </div>
           <div class="flat-card-actions">
             <%= link_to "More info", cocktail_path(cocktail) %>
             <%= link_to "Edit", edit_cocktail_path(cocktail), class: "ml-3 text-warning" %>
-            <%= link_to "Delete", cocktail_path(cocktail), class: "ml-3 text-danger" %>
+            <%= link_to 'Delete', cocktail_path(cocktail),
+            data: {:confirm => 'Are you sure?'}, :method => :delete, class: "ml-3 text-danger" %>
           </div>
         </div>
       </div>
     <% end %>
-
-<%= cl_image_tag("qajdnlferotcdflciulo",
-      width: 400, height: 300, crop: :fill) %>
 
 
