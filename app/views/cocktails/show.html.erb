@@ -1,4 +1,4 @@
-<div class="banner mt-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key%>')"></div>
+<div class="banner mt-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key%>')"><%= @cocktail.name %></div>
   <br>
   <br>
   <div class="container margin-top-negative">
@@ -23,7 +23,7 @@
         </div>
       </div>
       <br>
-      <div class="col-5 mt-3">
+      <div class="col-5 mt-5">
         <div class="flat-show-card">
           <h5>Add a new dose!</h5>
           <%= simple_form_for [@cocktail, @dose] do |f| %>
@@ -58,4 +58,6 @@
 
 
     </div>
+    <br>
+    <br>
 </div>
