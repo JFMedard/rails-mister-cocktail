@@ -5,7 +5,11 @@
         <div class="flat-show-card">
           <h1><%= @cocktail.name %></h1>
           <% @cocktail.doses.each do |cocktail| %>
-          <p class="flat-show-address"><%=cocktail.ingredient.name%> | <%= cocktail.description  %></p>
+          <p class="flat-show-address"><%=cocktail.ingredient.name%> | <%= cocktail.description  %>
+           <% end %>
+             | <% @doses.each do |dose| %>
+            <%= link_to 'delete', dose_path(dose), method: :delete %>
+           </p>
           <% end %>
         </div>
         <div class="flat-show-card">
@@ -66,6 +70,10 @@
           <% end %>
 
           <%= link_to "Back", cocktails_path %>
+
+          <% @doses.each do |dose| %>
+            <li><%= "#{dose.ingredient.name} | #{dose.description}" %> <%= link_to 'delete', dose_path(dose), method: :delete %></li>
+           <% end %>
 
         </div>
       </div>
