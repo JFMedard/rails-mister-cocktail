@@ -13,7 +13,6 @@
           <% end %>
         </div>
         <div class="flat-show-card">
-
           <div class="map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=5 Queensmill Road London SW6 6JP&zoom=13&scale=2&size=1000x1000&maptype=roadmap&markers=color:red%7C5 Queensmill Road London SW6 6JP&key=AIzaSyBtaHK-BLhBg7TruJu8iKk_wETqZMJM-GY')"></div>
         </div>
 
@@ -22,18 +21,11 @@
       <div class="col-4">
         <div class="flat-show-card">
           <h5>Add a new dose!</h5>
-
-          <form action="">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">From:</span>
-              <input type="text" class="form-control" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mt-2">
-              <span class="input-group-addon" id="basic-addon1">To:</span>
-              <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-          </form>
+          <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description %>
+          <%= f.association :ingredient %>
+          <%= f.submit class: "btn btn-primary"%>
+          <% end %>
         </div>
         <div class="flat-show-card">
           <h3>Details</h3>
@@ -61,13 +53,9 @@
         <div class="container">
 
 
-          <br>
+        <br>
 
-          <%= simple_form_for [@cocktail, @dose] do |f| %>
-          <%= f.input :description %>
-          <%= f.association :ingredient %>
-          <%= f.submit class: "btn btn-primary"%>
-          <% end %>
+
 
           <%= link_to "Back", cocktails_path %>
 
@@ -77,5 +65,7 @@
 
         </div>
       </div>
+
+
     </div>
 </div>
